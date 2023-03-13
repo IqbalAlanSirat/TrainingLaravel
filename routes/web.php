@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DocumentController;
+use App\Models\Document;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index', [
-        'name' => 'Abu',
-        'workplace' => 'Kementerian Sumber Manusia',
-    ]);
+// Route::get('/', function () {
+//     return view('index', [
+//         'name' => 'Abu',
+//         'workplace' => 'Kementerian Sumber Manusia',
+//     ]);
     // // return view('welcome');
     // // $x = 2;
     // // $y = $x * 2;
@@ -28,7 +30,9 @@ Route::get('/', function () {
     // //livewire()
 
     // return $data;
-});
+// });
+
+Route::get('/', [DocumentController::class, 'index']);
 
 // Route::method('url',response);
 // response => function, controller,
