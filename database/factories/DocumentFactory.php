@@ -21,7 +21,7 @@ class DocumentFactory extends Factory
             'tarikh_diterbitkan' => fake('ms_MY')->dateTimeBetween('-23 years', 'now'),
             'nama_penulis' => fake('ms_MY')->firstName(),
             'disahkan_oleh' => fake('ms_MY')->lastName(),
-            'tarikh_disahkan' => fake('ms_MY')->date(),
+            'tarikh_disahkan' => fake('ms_MY')->dateTimeBetween('-23 years', 'now'),
         ];
     }
 }

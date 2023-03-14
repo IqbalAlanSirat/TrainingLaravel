@@ -33,6 +33,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [DocumentController::class, 'index']);
+Route::delete('documents/{document}', [DocumentController::class, 'destroy'])->name('document.delete');
 
 // Route::method('url',response);
 // response => function, controller,
