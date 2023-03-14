@@ -29,7 +29,7 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        //
+        return view('Document/create');
     }
 
     /**
@@ -37,7 +37,17 @@ class DocumentController extends Controller
      */
     public function store(StoreDocumentRequest $request)
     {
-        //
+        // $tarikh_diterima = date('Y-m-d H:m:s', strtotime($request->tarikh_diterima_date . $request->tarikh_diterima_time));
+        // dd($tarikh_diterima);
+        $document = new Document();
+        $document->nama = $request->nama;
+        $document->tarikh_diterbitkan = $request->tarikh_diterima;
+        $document->nama_penulis = $request->nama_penulis;
+        $document->disahkan_oleh = $request->disahkan_oleh;
+        $document->tarikh_disahkan = $request->tarikh_disahkan;
+        $document->save();
+
+        return to_route('document.index');
     }
 
     /**
@@ -53,7 +63,7 @@ class DocumentController extends Controller
      */
     public function edit(Document $document)
     {
-        //
+        return view('document/edit')->with(compact('document'));
     }
 
     /**
@@ -61,7 +71,14 @@ class DocumentController extends Controller
      */
     public function update(UpdateDocumentRequest $request, Document $document)
     {
-        //
+        $document->nama = $request->nama;
+        $document->tarikh_diterbitkan = $request->tarikh_diterima;
+        $document->nama_penulis = $request->nama_penulis;
+        $document->disahkan_oleh = $request->disahkan_oleh;
+        $document->tarikh_disahkan = $request->tarikh_disahkan;
+        $document->save();
+
+        return to_route('document.index');
     }
 
     /**

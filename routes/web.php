@@ -32,8 +32,12 @@ use Illuminate\Support\Facades\Route;
     // return $data;
 // });
 
-Route::get('/', [DocumentController::class, 'index']);
+Route::get('/', [DocumentController::class, 'index'])->name('document.index');
 Route::delete('documents/{document}', [DocumentController::class, 'destroy'])->name('document.delete');
+Route::get('document/create', [DocumentController::class, 'create'])->name('document.create');
+Route::post('document/store', [DocumentController::class, 'store'])->name('document.store');
+Route::get('document/edit/{document}', [DocumentController::class, 'edit'])->name('document.edit');
+Route::patch('document/update/{document}', [DocumentController::class, 'update'])->name('document.update');
 
 // Route::method('url',response);
 // response => function, controller,
